@@ -131,7 +131,19 @@ export async function GET(request: Request) {
       })
     );
 
-    return NextResponse.json(payloads);
+    const filteredPayloads = payloads.filter((p) => {
+      if (!p.providers) return false;
+      const hasFlatrate = p.providers.flatrate && p.providers.flatrate.length > 0;
+      const hasRent = p.providers.rent && p.providers.rent.length > 0;
+      const hasBuy = p.providers.buy && p.providers.buy.length > 0;
+      return hasFlatrate || hasRent || hasBuy;
+    });
+
+    if (filteredPayloads.length === 0) {
+      return NextResponse.json({ error: 'No results found with streaming options in this region' }, { status: 404 });
+    }
+
+    return NextResponse.json(filteredPayloads);
 
   } catch (error: any) {
     console.error('API Error:', error.message);
