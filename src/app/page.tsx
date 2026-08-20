@@ -9,6 +9,16 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<any[]>([]);
   const [error, setError] = useState('');
+  const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
+
+  const toggleExpand = (id: string) => {
+    setExpandedIds(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -120,9 +130,19 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <p className="text-gray-300 leading-relaxed mb-6 line-clamp-3 text-sm md:text-base">
-                    {result.overview || 'No overview available for this title.'}
-                  </p>
+                  <div className="mb-6">
+                    <p className={`text-gray-300 leading-relaxed text-sm md:text-base transition-all duration-300 ${expandedIds.has(`${result.id}-${result.type}`) ? '' : 'line-clamp-3'}`}>
+                      {result.overview || 'No overview available for this title.'}
+                    </p>
+                    {result.overview && result.overview.length > 150 && (
+                      <button 
+                        onClick={() => toggleExpand(`${result.id}-${result.type}`)}
+                        className="text-primary hover:text-primary-400 text-sm font-medium mt-1 focus:outline-none transition-colors"
+                      >
+                        {expandedIds.has(`${result.id}-${result.type}`) ? 'Read less' : 'Read more'}
+                      </button>
+                    )}
+                  </div>
 
                   {/* Streaming Platforms */}
                   <div className="mt-auto pt-4 border-t border-white/5">
