@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#e11d48', // Rose/Crimson
-        secondary: '#f59e0b', // Amber/Gold
-        background: '#09090b', // Deep OLED Black
-        surface: '#18181b', // Dark Surface
+        primary: '#06b6d4', // Cyan 500
+        secondary: '#3b82f6', // Blue 500
+        background: '#020617', // Midnight Slate
+        surface: '#0f172a', // Dark Slate
       }
     },
   },
