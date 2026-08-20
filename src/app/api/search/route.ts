@@ -4,8 +4,33 @@ import axios from 'axios';
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 
+// Basic in-memory rate limiting (Works well per-instance on Vercel)
+const rateLimit = new Map();
+const RATE_LIMIT_MAX = 20; // Max requests
+const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
+
 export async function GET(request: Request) {
   try {
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
+    
+    // Rate Limiting Logic
+    if (ip !== 'unknown') {
+      const now = Date.now();
+      const userLimit = rateLimit.get(ip);
+      
+      if (userLimit) {
+        if (now - userLimit.timestamp < RATE_LIMIT_WINDOW) {
+          if (userLimit.count >= RATE_LIMIT_MAX) {
+            return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
+          }
+          userLimit.count += 1;
+        } else {
+          rateLimit.set(ip, { count: 1, timestamp: now });
+        }
+      } else {
+        rateLimit.set(ip, { count: 1, timestamp: now });
+      }
+    }
     const { searchParams } = new URL(request.url);
     const query = searchParams.get('q');
     
