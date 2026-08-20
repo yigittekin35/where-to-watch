@@ -49,24 +49,24 @@ export default function Home() {
       </div>
 
       {/* Search Bar */}
-      <form onSubmit={handleSearch} className="w-full max-w-2xl relative z-10 mb-16">
+      <form onSubmit={handleSearch} className="w-full max-w-2xl relative z-10 mb-16 px-2 md:px-0">
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
-          <div className="relative glass-panel rounded-2xl flex items-center p-2 focus-within:ring-2 focus-within:ring-primary/50 transition-all">
-            <Search className="w-6 h-6 text-gray-400 ml-3 mr-2" />
+          <div className="relative glass-panel rounded-2xl flex items-center p-1.5 md:p-2 focus-within:ring-2 focus-within:ring-primary/50 transition-all">
+            <Search className="w-5 h-5 md:w-6 md:h-6 text-gray-400 ml-2 md:ml-3 mr-1 md:mr-2 shrink-0" />
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="e.g. Inception, Breaking Bad..."
-              className="flex-1 bg-transparent border-none outline-none text-lg px-2 py-3 text-white placeholder:text-gray-500"
+              className="flex-1 min-w-0 bg-transparent border-none outline-none text-base md:text-lg px-2 py-2 md:py-3 text-white placeholder:text-gray-500"
             />
             <button
               type="submit"
               disabled={loading}
-              className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-lg shadow-primary/25 disabled:opacity-70 disabled:cursor-not-allowed flex items-center gap-2"
+              className="bg-primary hover:bg-primary/90 text-white px-4 md:px-6 py-2.5 md:py-3 rounded-xl font-semibold transition-all shadow-lg shadow-primary/25 disabled:opacity-70 disabled:cursor-not-allowed flex items-center gap-2 shrink-0 text-sm md:text-base"
             >
-              {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Search'}
+              {loading ? <Loader2 className="w-4 h-4 md:w-5 md:h-5 animate-spin" /> : 'Search'}
             </button>
           </div>
         </div>
