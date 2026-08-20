@@ -97,14 +97,14 @@ export default function Home() {
               <div className="flex flex-col md:flex-row">
                 {/* Poster */}
                 {result.poster_path ? (
-                  <div className="md:w-1/3 relative shrink-0">
+                  <div className="md:w-1/3 relative shrink-0 md:self-start">
                     <img 
                       src={result.poster_path} 
                       alt={result.title} 
-                      className="w-full h-full object-cover object-center aspect-[2/3] md:aspect-[2/3]"
+                      className="w-full aspect-[2/3] object-cover object-center rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] to-transparent md:hidden" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#1e293b]/80 hidden md:block" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] to-transparent md:hidden rounded-t-3xl" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#1e293b]/80 hidden md:block rounded-l-3xl pointer-events-none" />
                   </div>
                 ) : (
                   <div className="md:w-1/3 aspect-[2/3] bg-surface flex items-center justify-center shrink-0 border-r border-white/5">
@@ -131,10 +131,10 @@ export default function Home() {
                   </div>
                   
                   <div className="mb-6">
-                    <p className={`text-gray-300 leading-relaxed text-sm md:text-base transition-all duration-300 ${expandedIds.has(`${result.id}-${result.type}`) ? '' : 'line-clamp-3'}`}>
+                    <p className={`text-gray-300 leading-relaxed text-sm md:text-base transition-all duration-300 ${expandedIds.has(`${result.id}-${result.type}`) ? '' : 'line-clamp-3 md:line-clamp-4'}`}>
                       {result.overview || 'No overview available for this title.'}
                     </p>
-                    {result.overview && result.overview.length > 150 && (
+                    {result.overview && result.overview.length > 250 && (
                       <button 
                         onClick={() => toggleExpand(`${result.id}-${result.type}`)}
                         className="text-primary hover:text-primary-400 text-sm font-medium mt-1 focus:outline-none transition-colors"
