@@ -75,7 +75,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: 'No results found' }, { status: 404 });
     }
 
-    const topResults = results.slice(0, 5);
+    const topResults = results.slice(0, 10);
     const safeRegion = region ? region.toUpperCase() : 'US';
 
     // 2. Fetch watch providers for the specific media and region concurrently
