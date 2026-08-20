@@ -53,10 +53,10 @@ export default function Home() {
       {/* Header */}
       <div className="text-center mb-12 relative z-10">
         <h1 className="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">
-          Where to <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Watch?</span>
+          Find Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Stream</span>
         </h1>
         <p className="text-gray-400 text-lg md:text-xl max-w-xl mx-auto">
-          Search for a movie or TV show to instantly find out which streaming platforms have it in your region.
+          Discover exactly which platforms hold the keys to your favorite movies and series, tailored perfectly to your region.
         </p>
       </div>
 
@@ -76,7 +76,7 @@ export default function Home() {
             <button
               type="submit"
               disabled={loading}
-              className="bg-primary hover:bg-primary/90 text-white px-4 md:px-6 py-2.5 md:py-3 rounded-xl font-semibold transition-all shadow-lg shadow-primary/25 disabled:opacity-70 disabled:cursor-not-allowed flex items-center gap-2 shrink-0 text-sm md:text-base"
+              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white px-4 md:px-6 py-2.5 md:py-3 rounded-xl font-semibold transition-all shadow-lg shadow-primary/25 disabled:opacity-70 disabled:cursor-not-allowed flex items-center gap-2 shrink-0 text-sm md:text-base"
             >
               {loading ? <Loader2 className="w-4 h-4 md:w-5 md:h-5 animate-spin" /> : 'Search'}
             </button>
@@ -105,8 +105,8 @@ export default function Home() {
                       alt={result.title} 
                       className="w-full aspect-[2/3] object-cover object-center rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] to-transparent md:hidden rounded-t-3xl" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#1e293b]/80 hidden md:block rounded-l-3xl pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent md:hidden rounded-t-3xl" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-surface/80 hidden md:block rounded-l-3xl pointer-events-none" />
                   </div>
                 ) : (
                   <div className="md:w-1/3 aspect-[2/3] bg-surface flex items-center justify-center shrink-0 border-r border-white/5">
@@ -125,7 +125,7 @@ export default function Home() {
                           <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
                           <span className="text-white">{result.rating ? result.rating.toFixed(1) : 'N/A'}</span>
                         </span>
-                        <span className="uppercase text-xs tracking-wider bg-primary/20 text-primary-300 px-2 py-1 rounded-md">
+                        <span className="uppercase text-xs tracking-wider bg-primary/20 text-primary px-2 py-1 rounded-md font-bold">
                           {result.type === 'movie' ? 'Movie' : 'TV Show'}
                         </span>
                       </div>

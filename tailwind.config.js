@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#6366f1',
-        secondary: '#a855f7',
-        background: '#0f172a',
-        surface: '#1e293b',
+        primary: '#e11d48', // Rose/Crimson
+        secondary: '#f59e0b', // Amber/Gold
+        background: '#09090b', // Deep OLED Black
+        surface: '#18181b', // Dark Surface
       }
     },
   },
