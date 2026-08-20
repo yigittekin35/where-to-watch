@@ -6,7 +6,7 @@ const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 
 // Basic in-memory rate limiting (Works well per-instance on Vercel)
 const rateLimit = new Map();
-const RATE_LIMIT_MAX = 20; // Max requests
+const RATE_LIMIT_MAX = 10; // Max requests
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
 
 export async function GET(request: Request) {
