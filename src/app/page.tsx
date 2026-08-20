@@ -131,8 +131,12 @@ export default function Home() {
                   </div>
                   
                   <div className="mb-6">
-                    <p className={`text-gray-300 leading-relaxed text-sm md:text-base transition-all duration-300 ${expandedIds.has(`${result.id}-${result.type}`) ? '' : 'line-clamp-3 md:line-clamp-4'}`}>
-                      {result.overview || 'No overview available for this title.'}
+                    <p className="text-gray-300 leading-relaxed text-sm md:text-base transition-all duration-300">
+                      {result.overview 
+                        ? (result.overview.length > 250 && !expandedIds.has(`${result.id}-${result.type}`)
+                            ? `${result.overview.substring(0, 250)}...`
+                            : result.overview)
+                        : 'No overview available for this title.'}
                     </p>
                     {result.overview && result.overview.length > 250 && (
                       <button 
