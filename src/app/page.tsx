@@ -43,7 +43,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center pt-24 pb-12 px-4 relative overflow-x-hidden">
+    <main className="min-h-screen flex flex-col items-center pt-24 px-4 relative overflow-x-hidden">
       {/* Background decorations */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[150px] rounded-full" />
@@ -210,7 +210,7 @@ export default function Home() {
       )}
 
       {/* Footer */}
-      <footer className="mt-auto pt-16 text-center text-sm text-gray-500 relative z-10">
+      <footer className="mt-auto pt-16 pb-6 text-center text-sm text-gray-500 relative z-10 w-full">
         <p>Where to Watch &copy; {new Date().getFullYear()} — Powered by TMDB data.</p>
       </footer>
     </main>
