@@ -46,8 +46,8 @@ export default function Home() {
     <main className="min-h-screen flex flex-col items-center pt-24 pb-12 px-4 relative overflow-x-hidden">
       {/* Background decorations */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/20 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] bg-secondary/20 blur-[120px] rounded-full" />
+        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[150px] rounded-full" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] bg-secondary/10 blur-[150px] rounded-full" />
       </div>
 
       {/* Header */}
