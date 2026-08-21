@@ -208,6 +208,11 @@ export default function Home() {
           ))}
         </div>
       )}
+
+      {/* Footer */}
+      <footer className="mt-auto pt-16 text-center text-sm text-gray-500 relative z-10">
+        <p>Where to Watch &copy; {new Date().getFullYear()} — Powered by TMDB data.</p>
+      </footer>
     </main>
   );
 }
