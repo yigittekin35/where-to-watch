@@ -219,8 +219,16 @@ export default function Home() {
       )}
 
       {/* Footer */}
-      <footer className="mt-auto pt-16 pb-6 text-center text-sm text-stone-500 relative z-10 w-full">
+      <footer className="mt-auto pt-16 pb-6 text-center text-sm text-stone-500 relative z-10 w-full flex flex-col items-center gap-1.5">
         <p>Where to Watch &copy; {new Date().getFullYear()} — Powered by TMDB data.</p>
+        <a 
+          href="https://watch.yigittekin.nl/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-amber-400/80 hover:text-amber-300 text-xs transition-colors"
+        >
+          watch.yigittekin.nl
+        </a>
       </footer>
     </main>
   );

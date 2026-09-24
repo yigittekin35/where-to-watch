@@ -5,6 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://watch.yigittekin.nl"),
   title: "Where to Watch? | Movie & TV Show Platform Finder",
   description: "Search for any movie or TV show and instantly find out which digital platforms (Netflix, Amazon, etc.) stream it in your region.",
 };
