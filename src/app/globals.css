@@ -4,15 +4,33 @@
 
 @layer base {
   body {
-    @apply bg-background text-white min-h-screen selection:bg-primary/30 selection:text-white;
-    /* Custom background pattern or gradient can go here */
-    background-image: radial-gradient(circle at top right, #1e1b4b 0%, #0f172a 40%, #0f172a 100%);
+    @apply bg-background text-stone-100 min-h-screen selection:bg-primary selection:text-white;
+    /* Theatrical curtain stage backdrop with dramatic top spotlight */
+    background-color: #0a0204;
+    background-image: 
+      radial-gradient(ellipse 90% 45% at 50% -5%, rgba(185, 28, 28, 0.38) 0%, rgba(112, 12, 32, 0.18) 50%, transparent 80%),
+      radial-gradient(circle at 15% 40%, rgba(63, 8, 20, 0.35) 0%, transparent 50%),
+      radial-gradient(circle at 85% 60%, rgba(112, 12, 32, 0.25) 0%, transparent 55%),
+      linear-gradient(180deg, #120306 0%, #0a0204 100%);
     background-attachment: fixed;
   }
 }
 
 @layer utilities {
   .glass-panel {
-    @apply bg-surface/40 backdrop-blur-md border border-white/10 shadow-xl;
+    @apply bg-surface/75 backdrop-blur-xl border border-red-950/60 shadow-2xl shadow-black/80;
+  }
+  
+  .glass-panel-curtain {
+    @apply bg-gradient-to-b from-[#22060d]/85 to-[#130407]/90 backdrop-blur-xl border border-rose-900/30 shadow-2xl shadow-red-950/40;
+  }
+
+  .curtain-glow {
+    box-shadow: 0 0 35px -5px rgba(185, 28, 28, 0.35);
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 25px -4px rgba(245, 158, 11, 0.3);
   }
 }
+
